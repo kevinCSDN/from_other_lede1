@@ -16,7 +16,9 @@
 #sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 #sed -i 's/+uhttpd +uhttpd-mod-ubus //g' feeds/luci/collections/luci/Makefile    # 删除uhttpd
 #sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings    # 设置密码为空
-sed -i 's/PATCHVER:=5.15/PATCHVER:=5.4/g' target/linux/x86/Makefile   # x86机型,默认内核5.10，修改内核为5.15
+sed -i 's/PATCHVER:=.*/PATCHVER:=5.4/g' target/linux/x86/Makefile
+sed -i 's/LINUX_VERSION-5.4 = .*/LINUX_VERSION-5.4 = 5.4.250/g' lede/include/kernel-5.4
+sed -i 's/LINUX_KERNEL_HASH-5.4.[0-9]* = .*/LINUX_KERNEL_HASH-5.4.250 = 0f5b8876526062bf5e346f6b9dde88be873761ee33cf3b8a1586d7d109a091fb/g' lede/include/kernel-5.4
 
 #sed -i '$ a uci commit uhttpd' package/lean/default-settings/files/zzz-default-settings
 
